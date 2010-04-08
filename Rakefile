@@ -5,11 +5,12 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "rack-php-session"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Read-only access to PHP Sessions from Rack Applications}
+    gem.description = %Q{Exposes a PHP Session (read-only) to Rack applications}
     gem.email = "adam@mediadrive.ca"
     gem.homepage = "http://github.com/adam12/rack-php-session"
     gem.authors = ["Adam Daniels"]
+    gem.add_dependency 'ruby-php-serialize'
     gem.add_development_dependency "yard", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
