@@ -17,12 +17,17 @@ class TestRackPhpSession < Test::Unit::TestCase
   end
 
   def test_php_session_with_cookie
-    get '/', nil, { 'HTTP_COOKIE' => 'PHPSESSID=b6c1556e31e663f35b042c8b8369b75e'}
+    get '/', nil, { 'HTTP_COOKIE' => 'PHPSESSID=b6c1556e31e663f35b042c8b8369b75e' }
     assert last_request.env.include?('php.session')
   end
 
-  def test_php_session_is_valid
-    get '/', nil, { 'HTTP_COOKIE' => 'PHPSESSID=b6c1556e31e663f35b042c8b8369b75e'}
+  def test_php_session_hash_is_valid
+    get '/', nil, { 'HTTP_COOKIE' => 'PHPSESSID=b6c1556e31e663f35b042c8b8369b75e' }
     assert_equal Hash["uid" => "1", "upw" => "fc34cbc639d6f616f6a43daa3451ab7a"], last_request.env['php.session']
+  end
+
+  def test_empty_session_file_should_return_empty_hash
+    get '/', nil, { 'HTTP_COOKIE' => 'PHPSESSID=empty' }
+    assert_equal Hash.new, last_request.env['php.session']
   end
 end
