@@ -11,7 +11,7 @@ Installation
 
 Dependencies
 ------------
-* [ruby-php-serialize](http://www.aagh.net/projects/ruby-php-serialize)
+* [php-serialize](http://www.aagh.net/projects/ruby-php-serialize)
 
 
 Usage

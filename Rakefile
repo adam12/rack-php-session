@@ -10,11 +10,16 @@ begin
     gem.email = "adam@mediadrive.ca"
     gem.homepage = "http://github.com/adam12/rack-php-session"
     gem.authors = ["Adam Daniels"]
-    gem.add_dependency 'ruby-php-serialize'
+    gem.add_dependency 'php-serialize'
     gem.add_development_dependency "yard", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
+
+  Jeweler::RubyforgeTasks.new do |t|
+    t.doc_task = :yardoc
+  end
+  
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
 end
