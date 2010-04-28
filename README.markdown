@@ -16,15 +16,20 @@ Dependencies
 
 Usage
 -----
-In your rackup file
+In a Rack environment:
+      
+      require 'rack/php-session'
+      use Rack::PHPSession
 
-      use Rack::PhpSession
-
+      run app
 
 In your application
 
       env['php.session'] => { } # Returns a Hash of the PHP Session contents
 
+In a Rails environment add in 'config/environment.rb' the following:
+    
+      config.middleware.use Rack::PHPSession
 
 Limitations
 -----------
