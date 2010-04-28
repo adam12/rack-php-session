@@ -5,7 +5,7 @@ require 'sinatra/base'
 use Rack::Reloader
 use Rack::Lint
 use Rack::ShowExceptions
-use Rack::PhpSession
+use Rack::PHPSession
 
 class App < Sinatra::Base
   get '/' do

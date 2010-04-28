@@ -1,12 +1,11 @@
 require 'helper'
-require 'yaml'
 
 class TestRackPhpSession < Test::Unit::TestCase
   include Rack::Test::Methods
 
   def app
     @app = Rack::Builder.new {
-      use Rack::PhpSession, :session_file_path => File.join(File.dirname(__FILE__), 'fixtures')
+      use Rack::PHPSession, :session_file_path => File.join(File.dirname(__FILE__), 'fixtures')
       run lambda {|env| [200,  {'Content-Type' =>  'text/plain', 'Content-Length' => '12'}, ["Hello World!"] ] }
     }.to_app
   end
